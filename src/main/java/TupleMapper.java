@@ -14,7 +14,8 @@ public class TupleMapper {
         this.brokenNumber = brokenNumber;
     }
 
-    public String getNumber(){
+    public String getRomanNumber() throws Exception {
+        if (brokenNumber==null) throw new Exception();
         return stream(brokenNumber).map(s-> romanTable[s[1]][s[0]-1]).reduce("", String::concat);
     }
 
